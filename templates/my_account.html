@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <a href="{{ url_for('home') }}">Home</a>
+        <h1>My Account</h1>
+        <form action="{{ url_for('my_account') }}" method="post">
+            <input type="email" name="email" value="{{ user.email }}" required maxlength="50">
+            <input type="password" name="password" placeholder="New Password">
+            <p>Toggle to make information public:</p>
+            <div class="account-field">
+                <label>Phone Number</label>
+                <input type="text" name="phone_number" value="{{ user.phone_number }}" maxlength="50">
+                <div class="button-group">
+                    <button type="submit">Save</button>
+                    <label class="switch">
+                        <input type="checkbox" name="phone_visible" {% if user.phone_visible %}checked{% endif %}>
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div>
+            <div class="account-field">
+                <label>LinkedIn</label>
+                <input type="text" name="linkedin" value="{{ user.linkedin }}" maxlength="50">
+                <div class="button-group">
+                    <button type="submit">Save</button>
+                    <label class="switch">
+                        <input type="checkbox" name="linkedin_visible" {% if user.linkedin_visible %}checked{% endif %}>
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div>
+            <div class="account-field">
+                <label>Facebook</label>
+                <input type="text" name="facebook" value="{{ user.facebook }}" maxlength="50">
+                <div class="button-group">
+                    <button type="submit">Save</button>
+                    <label class="switch">
+                        <input type="checkbox" name="facebook_visible" {% if user.facebook_visible %}checked{% endif %}>
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div>
+            <div class="account-field">
+                <label>Twitter</label>
+                <input type="text" name="twitter" value="{{ user.twitter }}" maxlength="50">
+                <div class="button-group">
+                    <button type="submit">Save</button>
+                    <label class="switch">
+                        <input type="checkbox" name="twitter_visible" {% if user.twitter_visible %}checked{% endif %}>
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div>
+            <div class="account-field">
+                <label>GitHub</label>
+                <input type="text" name="github" value="{{ user.github }}" maxlength="50">
+                <div class="button-group">
+                    <button type="submit">Save</button>
+                    <label class="switch">
+                        <input type="checkbox" name="github_visible" {% if user.github_visible %}checked{% endif %}>
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
